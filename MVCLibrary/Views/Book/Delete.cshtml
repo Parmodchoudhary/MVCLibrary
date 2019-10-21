@@ -1,0 +1,57 @@
+﻿@model MVCLibrary.Models.Book
+
+@{
+    ViewBag.Title = "Delete"; // comment for delete //
+}
+
+<h2>Delete a Book Issue Record</h2> // comment for issue record //
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Book</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerID)// customer id //
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerID) // customer id //
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IssueDate) //issue date //
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IssueDate) //issue date //
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReturnDate) // return data //
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReturnDate) // return data //
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookID) // book id //
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookID) // book id //
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    { // comment for begin form //
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

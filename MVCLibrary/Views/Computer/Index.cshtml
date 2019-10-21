@@ -1,0 +1,76 @@
+﻿@model IEnumerable<MVCLibrary.Models.Computer>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="row" style="margin-bottom:30px;margin-top:30px;">
+    <div class="col-lg-3" style="background-color:#fff;padding:15px;border-radius:10px;">
+        <img src="~/Images/Customers.jpg" width="100%" height="150px" />
+        <div style="margin-top:20px;font-size:25px;text-align:center">
+            @Html.ActionLink("Manage Members", "Index", "Customer") // this is use for the backround color and width ,hight , font size of customer index //
+        </div>
+    </div>
+    <div class="col-lg-3" style="background-color:#fff;padding:15px;border-radius:10px;">
+        <img src="~/Images/Books.jpg" width="100%" height="150px" />
+        <div style="margin-top:20px;font-size:25px;text-align:center">
+            @Html.ActionLink("Manage Books Issue", "Index", "Book")  // this is use for the backround color and width ,hight , font size of book id index //
+        </div>
+    </div>
+    <div class="col-lg-3" style="background-color:#fff;padding:15px;border-radius:10px;">
+        <img src="~/Images/Inventory.jpg" width="100%" height="150px" />
+        <div style="margin-top:20px;font-size:25px;text-align:center">
+            @Html.ActionLink("Manage Books Inventory", "Index", "Inventory") // this is use for the backround color and width ,hight , font size of inventory index //
+        </div>
+    </div>
+    <div class="col-lg-3" style="background-color:#fff;padding:15px;border-radius:10px;">
+        <img src="~/Images/Computers.jpg" width="100%" height="150px" />
+        <div style="margin-top:20px;font-size:25px;text-align:center">
+            @Html.ActionLink("Manage Library Computers", "Index", "Computer") // this is use for the backround color and width ,hight , font size of computer index //
+        </div>
+    </div>
+</div>
+
+<div style="background-color:#fff;padding:15px;border-radius:10px;">
+    // this is use for the backround color of computer management //
+    <h2>Computer's Management</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        // this comment is use for the name of customer id, computer id and time //
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ComputerID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Time)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        { // comment for the each item of customer id , issue id , return data , book id //
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustomerID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ComputerID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Time)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+    @Html.ActionLink("Back to Menu", "Index", "Home")
+</div>

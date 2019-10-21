@@ -1,0 +1,80 @@
+﻿@model IEnumerable<MVCLibrary.Models.Book>
+
+@{
+    ViewBag.Title = "Books Issue Management"; // comment for backround color and image of the customer of book management//
+}
+<div class="row" style="margin-bottom:30px;margin-top:30px;">
+    <div class="col-lg-3" style="background-color:#fff;padding:15px;border-radius:10px;">
+        <img src="~/Images/Customers.jpg" width="100%" height="150px" />
+        <div style="margin-top:20px;font-size:25px;text-align:center">
+            @Html.ActionLink("Manage Members", "Index", "Customer")
+        </div>
+    </div>
+    <div class="col-lg-3" style="background-color:#fff;padding:15px;border-radius:10px;">
+        <img src="~/Images/Books.jpg" width="100%" height="150px" />
+        <div style="margin-top:20px;font-size:25px;text-align:center">
+            @Html.ActionLink("Manage Books Issue", "Index", "Book") // comment for the index of book //
+        </div>
+    </div>
+    <div class="col-lg-3" style="background-color:#fff;padding:15px;border-radius:10px;">
+        <img src="~/Images/Inventory.jpg" width="100%" height="150px" />
+        <div style="margin-top:20px;font-size:25px;text-align:center">
+            @Html.ActionLink("Manage Books Inventory", "Index", "Inventory") // comment for the index of inventory //
+        </div>
+    </div>
+    <div class="col-lg-3" style="background-color:#fff;padding:15px;border-radius:10px;">
+        <img src="~/Images/Computers.jpg" width="100%" height="150px" />
+        <div style="margin-top:20px;font-size:25px;text-align:center">
+            @Html.ActionLink("Manage Library Computers", "Index", "Computer") // comment for the index of computer //
+        </div>
+    </div>
+</div>
+
+<div style="background-color:#fff;padding:15px;border-radius:10px;">
+    <h2>Books Issue Management</h2> // comment for books issue mnagement //
+    <p>
+        @Html.ActionLink("Add New Book Entry", "Create") // comment for create class //
+    </p>
+    <table class="table">
+        // comment for the table class of customer id , issue date , return data , book id //
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IssueDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReturnDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookID)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        { // comment for the each item of customer id , issue id , return data , book id //
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustomerID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IssueDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReturnDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookID)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) | // comment foe the edit and delete button //
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+    @Html.ActionLink("Back to Menu", "Index", "Home") // comment for the index home //
+</div>

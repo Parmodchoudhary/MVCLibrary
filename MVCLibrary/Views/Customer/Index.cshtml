@@ -1,0 +1,77 @@
+﻿@model IEnumerable<MVCLibrary.Models.Customer>
+
+@{
+    ViewBag.Title = "Members Management"; // members management //
+}
+<div class="row" style="margin-bottom:30px;margin-top:30px;">
+    // this is use for the backround color and width ,hight , font size of customer index //
+    <div class="col-lg-3" style="background-color:#fff;padding:15px;border-radius:10px;">
+        <img src="~/Images/Customers.jpg" width="100%" height="150px" />
+        <div style="margin-top:20px;font-size:25px;text-align:center">
+            @Html.ActionLink("Manage Members", "Index", "Customer")
+        </div>
+    </div>
+    <div class="col-lg-3" style="background-color:#fff;padding:15px;border-radius:10px;">
+        // this is use for the backround color and width ,hight , font size of book  index //
+        <img src="~/Images/Books.jpg" width="100%" height="150px" />
+        <div style="margin-top:20px;font-size:25px;text-align:center">
+            @Html.ActionLink("Manage Books Issue", "Index", "Book")
+        </div>
+    </div>
+    <div class="col-lg-3" style="background-color:#fff;padding:15px;border-radius:10px;">
+        // this is use for the backround color and width ,hight , font size of inventory index //
+        <img src="~/Images/Inventory.jpg" width="100%" height="150px" />
+        <div style="margin-top:20px;font-size:25px;text-align:center">
+            @Html.ActionLink("Manage Books Inventory", "Index", "Inventory")
+        </div>
+    </div>
+    <div class="col-lg-3" style="background-color:#fff;padding:15px;border-radius:10px;">
+        <img src="~/Images/Computers.jpg" width="100%" height="150px" />
+        <div style="margin-top:20px;font-size:25px;text-align:center">
+            @Html.ActionLink("Manage Library Computers", "Index", "Computer") // this is use for the backround color and width ,hight , font size of computer index //
+        </div>
+    </div>
+</div>
+
+<div style="background-color:#fff;padding:15px;border-radius:10px;">
+    <h2>Members's Management</h2> // comment for the backround color of members management //
+    <p>
+        @Html.ActionLink("Add Customer", "Create")
+    </p>
+    <table class="table">
+        // this comment use for the name of the class table , name , phone , email //
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        { // comment for the each item of model , name , phone , email // //
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) | // comment for the edit and delete button //
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+    @Html.ActionLink("Back to Menu", "Index", "Home") // comment for the index home //
+</div>
